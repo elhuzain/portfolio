@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@import "tailwindcss";
+
+body {
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+:root {
+    --background-color: #121212;
+    --foreground-color: #f0f0f0;
+    --foreground-muted-color: #b6b6b6;
+}
+
+@theme {
+    --color-background: var(--background-color);
+    --color-foreground: var(--foreground-color);
+    --color-foreground-muted: var(--foreground-muted-color);
+}
+
+a {
+    @apply underline underline-offset-4 text-blue-300;
+}
