@@ -48,3 +48,12 @@ a {
         animation: none;
     }
 }
+
+
+.homepage-preview {
+    object-fit: contain;
+    padding: 1.25rem;
+    background: linear-gradient(to bottom, #fff9df, #f4e2ab);
+    border: 1px solid #d8c17e;
+    border-top-color: #fffdf2;
+}
