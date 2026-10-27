@@ -8,7 +8,6 @@
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-    --color-blue-300: oklch(80.9% 0.105 251.813);
     --spacing: 0.25rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
@@ -193,9 +192,6 @@
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
-  .block {
-    display: block;
-  }
   .flex {
     display: flex;
   }
@@ -210,9 +206,6 @@
   }
   .min-h-dvh {
     min-height: 100dvh;
-  }
-  .w-fit {
-    width: fit-content;
   }
   .w-full {
     width: 100%;
@@ -297,7 +290,7 @@ body {
   --foreground-muted-color: #b6b6b6;
 }
 a {
-  color: var(--color-blue-300);
+  color: var(--color-foreground);
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }
@@ -320,37 +313,44 @@ a {
     animation: none;
   }
 }
-.button-54 {
-  display: inline-block;
+.pixel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   flex: 1;
   min-width: 0;
   width: 100%;
   font-family: inherit;
   font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
   text-align: center;
+  text-decoration: none;
   color: var(--foreground-color);
   background-color: #1e1e1e;
+  padding: 10px 8px;
+  border: 0;
+  box-shadow: 0 5px #000, 0 -5px #000, 5px 0 #000, -5px 0 #000, 0 10px #00000038, 5px 5px #00000038, -5px 5px #00000038, inset 0 5px #ffffff36;
   cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  position: relative;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-.button-54:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
+.pixel-button svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
-@media (min-width: 768px) {
-  .button-54 {
-    padding: 0.25em 0.75em;
-  }
+.pixel-button-return {
+  width: fit-content;
+  flex: none;
+}
+.pixel-button:active {
+  transform: translateY(5px);
+  box-shadow: 0 5px #000, 0 -5px #000, 5px 0 #000, -5px 0 #000, inset 0 5px #00000038;
+}
+.pixel-button:focus-visible {
+  outline: 2px solid var(--foreground-color);
+  outline-offset: 8px;
 }
 @property --tw-rotate-x {
   syntax: "*";
