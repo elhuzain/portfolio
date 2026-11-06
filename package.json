@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:js": "esbuild scripts/src/main.js --bundle --minify --format=esm --target=es2020 --outfile=scripts/main.js",
+    "build:css": "tailwindcss -i style/input.css -o style/output.css",
+    "build": "npm run build:js && npm run build:css",
+    "watch:js": "npm run build:js -- --watch"
+  },
+  "dependencies": {
+    "gsap": "^3.15.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

@@ -20,6 +20,11 @@
     <meta name="twitter:description"
         content="Explore creative coding projects by Ahmed Huzain, including Fractal Tree and Fireworks experiments built with p5.js and HTML5 canvas.">
     <link rel="stylesheet" href="../style/output.css">
+    <script>
+        // Hide content until GSAP animates it in; reveal anyway if the script never loads.
+        document.documentElement.classList.add("js");
+        setTimeout(() => document.documentElement.classList.remove("js"), 3000);
+    </script>
 </head>
 
 <body class="px-4 py-8 flex bg-background text-foreground items-center justify-center min-h-dvh w-full">
@@ -73,6 +78,7 @@
             </ol>
         </section>
     </main>
+    <script type="module" src="/scripts/main.js"></script>
 </body>
 
 </html>

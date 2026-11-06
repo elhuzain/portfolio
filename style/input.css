@@ -21,31 +21,13 @@ a {
     @apply underline underline-offset-4 text-foreground;
 }
 
-/* Native transitions between same-origin pages. */
-@view-transition {
-    navigation: auto;
-}
-
-::view-transition-group(root) {
-    animation-duration: 240ms;
-    animation-timing-function: ease-in-out;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-    animation-duration: 240ms;
-    animation-timing-function: ease-in-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    @view-transition {
-        navigation: none;
-    }
-
-    ::view-transition-group(root),
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-        animation: none;
+/* Page transitions run in GSAP (scripts/src/main.js). Content starts hidden
+   so it doesn't flash before the enter animation; the .js class is set by an
+   inline script in each page's head. */
+@media (prefers-reduced-motion: no-preference) {
+    .js main > *,
+    .js main article {
+        visibility: hidden;
     }
 }
 

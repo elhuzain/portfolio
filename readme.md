@@ -12,7 +12,7 @@ A minimalist personal portfolio showcasing frontend, full-stack, and creative co
 
 - Static HTML and Tailwind CSS v4.
 - Pixelify Sans from Google Fonts.
-- Native cross-page View Transitions, with reduced-motion support.
+- GSAP page transitions (fade out upward, fade in from below), bundled with esbuild, with reduced-motion support.
 - Page-specific descriptions, Open Graph and Twitter metadata, and a shared favicon.
 
 ## Local preview
@@ -42,10 +42,18 @@ favicon.ico            Shared site icon
 
 Update the HTML files directly to change content. Add project images under the corresponding `assets` directory and use relative image paths in each gallery.
 
-Make styling changes in `style/input.css` and regenerate `style/output.css` with the Tailwind CSS v4 CLI. Keep the compiled stylesheet committed so the static site remains ready to serve. This repository does not currently include a package manifest or build script.
+Make styling changes in `style/input.css` and animation changes in `scripts/src/main.js` (GSAP), then rebuild:
 
-View Transitions enhance internal navigation in supporting browsers; other browsers use standard page navigation. Google Fonts and the external project previews require an internet connection.
+```sh
+npm install        # first time only
+npm run build      # bundles scripts/main.js with esbuild and compiles style/output.css
+npm run watch:js   # rebuild the script on every save while developing
+```
+
+esbuild bundles and minifies only the GSAP modules imported in `scripts/src/main.js`. Keep the compiled `scripts/main.js` and `style/output.css` committed so the static site remains ready to serve without a build step.
+
+Internal links play a GSAP exit animation before navigating; visitors with reduced motion enabled get standard page navigation. Google Fonts and the external project previews require an internet connection.
 
 ## Hosting
 
-Serve the repository root with any static host that supports directory index files. Keep the `work/`, `creative/`, `style/`, and `assets/` directories alongside `index.html`.
+Serve the repository root with any static host that supports directory index files. Keep the `work/`, `creative/`, `style/`, `scripts/`, and `assets/` directories alongside `index.html`.

@@ -17,6 +17,11 @@
     <meta name="twitter:title" content="Ahmed Huzain | Software Engineer">
     <meta name="twitter:description" content="Ahmed Huzain is a software engineer focused on interactive, minimalist, accessible, and responsive interfaces. Explore his web projects and creative coding.">
     <link rel="stylesheet" href="./style/output.css">
+    <script>
+        // Hide content until GSAP animates it in; reveal anyway if the script never loads.
+        document.documentElement.classList.add("js");
+        setTimeout(() => document.documentElement.classList.remove("js"), 3000);
+    </script>
 </head>
 
 <body class="px-4 py-8 flex bg-background text-foreground items-center justify-center min-h-dvh w-full">
@@ -56,6 +61,7 @@
             </a>
         </nav>
     </main>
+    <script type="module" src="/scripts/main.js"></script>
 </body>
 
 </html>
